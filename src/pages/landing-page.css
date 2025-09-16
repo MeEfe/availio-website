@@ -1,7 +1,6 @@
 .content-container {
   height: calc(100% - var(--app-header-height));
   width: 100%;
-  background-color: green;
 }
 
 .box-container {
