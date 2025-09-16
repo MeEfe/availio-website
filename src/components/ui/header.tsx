@@ -13,7 +13,7 @@ export default function Header() {
       role="banner"
       aria-label="Site header"
     >
-      <div className="h-[80px] w-full border-b bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <div className="h-[var(--app-header-height)] w-full border-b bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div
           className="mx-auto flex h-full max-w-full items-center justify-between 
   px-4 md:px-20 lg:px-40 xl:px-60"

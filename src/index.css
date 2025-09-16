@@ -68,10 +68,10 @@
   --shadow-opacity: var(--shadow-opacity);
   --color-shadow-color: var(--shadow-color);
   --color-destructive-foreground: var(--destructive-foreground);
-  --app-header-height: 6rem;
 }
 
 :root {
+  --app-header-height: 80px;
   --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.3006 0.0706 251.9346);
