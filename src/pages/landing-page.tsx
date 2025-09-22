@@ -35,47 +35,43 @@ export default function LandingPage() {
 
   return (
     <div className="flex items-center flex-col p-6 content-container">
-      <div>
-        <h1 className="uppercase mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-          Let's{" "}
-          <span className="underline underline-offset-3 decoration-8 decoration-accent dark:decoration-blue-600">
-            improve
-          </span>{" "}
-          your gym experience
-        </h1>
-        <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
-          <span className="font-bold">Availio</span> uses smart IoT tracking to
-          monitor gym equipment in real time. Our dashboard helps gyms make
-          better decisions, while our app gives members a seamless, data-driven
-          workout experience.
-        </p>
-      </div>
-      <div className="box-container">
-        <motion.div
-          className="box left-box"
-          onHoverStart={() => setHover("left")}
-          onHoverEnd={() => setHover(null)}
-          animate={{ clipPath: leftPoly }}
-          transition={transition}
-          style={{
-            clipPath: leftPoly,
-          }}
-        >
-          Left content
-        </motion.div>
+      <div className=" w-[70%] flex gap-[10%]">
+        <div className="p-3 w-1/4">
+          <h1 className="uppercase mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            Let's{" "}
+            <span className="underline underline-offset-3 decoration-8 decoration-accent dark:decoration-blue-600">
+              improve
+            </span>{" "}
+            your gym experience
+          </h1>
+        </div>
+        <div className=" w-full box-container">
+          <motion.div
+            className="box bg-primary"
+            onHoverStart={() => setHover("left")}
+            onHoverEnd={() => setHover(null)}
+            animate={{ clipPath: leftPoly }}
+            transition={transition}
+            style={{
+              clipPath: leftPoly,
+            }}
+          >
+            Left content
+          </motion.div>
 
-        <motion.div
-          className="box right-box"
-          onHoverStart={() => setHover("right")}
-          onHoverEnd={() => setHover(null)}
-          animate={{ clipPath: rightPoly }}
-          transition={transition}
-          style={{
-            clipPath: rightPoly,
-          }}
-        >
-          Right content
-        </motion.div>
+          <motion.div
+            className="box"
+            onHoverStart={() => setHover("right")}
+            onHoverEnd={() => setHover(null)}
+            animate={{ clipPath: rightPoly }}
+            transition={transition}
+            style={{
+              clipPath: rightPoly,
+            }}
+          >
+            Right content
+          </motion.div>
+        </div>
       </div>
     </div>
   );

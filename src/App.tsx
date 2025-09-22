@@ -1,3 +1,4 @@
+import Footer from "./components/ui/footer";
 import Header from "./components/ui/header";
 import LandingPage from "./pages/landing-page";
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <Header />
       <LandingPage />
+      <Footer />
     </>
   );
 }
