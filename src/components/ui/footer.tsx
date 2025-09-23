@@ -1,4 +1,5 @@
 import * as React from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
@@ -144,15 +145,29 @@ export default function ElegantFooter({
               <ul className="mt-4 space-y-3 text-sm">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <motion.a
                       href={link.href}
                       {...(link.external
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-300 ease-out relative inline-block"
+                      whileHover="hover"
+                      initial="initial"
+                      variants={{
+                        initial: {},
+                        hover: {}
+                      }}
                     >
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-accent rounded-full"
+                        variants={{
+                          initial: { width: "0%" },
+                          hover: { width: "100%" }
+                        }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                      />
                       {link.label}
-                    </a>
+                    </motion.a>
                   </li>
                 ))}
               </ul>
@@ -266,10 +281,16 @@ export default function ElegantFooter({
                     aria-invalid={submitState === "error"}
                     aria-describedby="subscribe-hint"
                   />
-                  <Button type="submit" className="shrink-0">
-                    <Send className="mr-2 h-4 w-4" />
-                    Subscribe
-                  </Button>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  >
+                    <Button type="submit" className="shrink-0">
+                      <Send className="mr-2 h-4 w-4" />
+                      Subscribe
+                    </Button>
+                  </motion.div>
                 </div>
                 <p
                   id="subscribe-hint"

@@ -4,7 +4,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
-import ReactLogo from "../../assets/black_logo.svg";
+import ReactLogo from "../../assets/logo.svg";
 
 export default function Header() {
   return (
