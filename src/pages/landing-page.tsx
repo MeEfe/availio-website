@@ -10,7 +10,52 @@ import playStoreIcon from "../assets/GetItOnGooglePlay_Badge_Web_color_English.p
 type HoverSide = "left" | "right" | null;
 
 export default function LandingPage() {
-  const [hover, setHover] = React.useState<HoverSide>(null);
+  const [hover, setHover] = React.useState<HoverSide>(() => {
+    // Load from localStorage or default to "left" (dashboard)
+    const saved = localStorage.getItem('landing-hover-preference');
+    return (saved as HoverSide) || "left";
+  });
+
+  const timerRef = React.useRef<NodeJS.Timeout | null>(null);
+  const userInteractedRef = React.useRef(false);
+
+  const handleHoverStart = (side: "left" | "right") => {
+    userInteractedRef.current = true;
+    setHover(side);
+    localStorage.setItem('landing-hover-preference', side);
+
+    // Clear existing timer and restart it
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    startAutoTimer();
+  };
+
+  const handleHoverEnd = () => {
+    // Keep the last hovered state instead of resetting to null
+    // The state will remain on the last hovered item
+  };
+
+  const startAutoTimer = () => {
+    timerRef.current = setInterval(() => {
+      setHover(current => {
+        const newSide = current === "left" ? "right" : "left";
+        localStorage.setItem('landing-hover-preference', newSide);
+        return newSide;
+      });
+    }, 7000);
+  };
+
+  // Start auto timer on mount and cleanup on unmount
+  React.useEffect(() => {
+    startAutoTimer();
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
 
   const baseTop = 70;
   const baseBottom = 30;
@@ -35,7 +80,7 @@ export default function LandingPage() {
   const transition: Transition = {
     type: "spring",
     stiffness: 220,
-    damping: 26,
+    damping: 60,
   };
 
   return (
@@ -71,8 +116,8 @@ export default function LandingPage() {
         <div className="w-full h-[80%] box-container">
           <motion.div
             className="box bg-primary flex items-center p-8 pl-12"
-            onHoverStart={() => setHover("left")}
-            onHoverEnd={() => setHover(null)}
+            onHoverStart={() => handleHoverStart("left")}
+            onHoverEnd={handleHoverEnd}
             animate={{ clipPath: leftPoly }}
             transition={transition}
             style={{
@@ -112,8 +157,8 @@ export default function LandingPage() {
 
           <motion.div
             className="box bg-white flex items-center p-8 pr-12"
-            onHoverStart={() => setHover("right")}
-            onHoverEnd={() => setHover(null)}
+            onHoverStart={() => handleHoverStart("right")}
+            onHoverEnd={handleHoverEnd}
             animate={{ clipPath: rightPoly }}
             transition={transition}
             style={{
