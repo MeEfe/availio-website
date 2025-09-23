@@ -39,7 +39,7 @@ export default function LandingPage() {
     <div className="flex items-center flex-col p-6 content-container">
       <div className=" w-[90%] flex gap-[10%] flex-1 justify-center items-center">
         <div className="p-3 w-1/4 content-end h-[80%]">
-          <h1 className="uppercase mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <h1 className="uppercase mb-4 font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: '1.2' }}>
             Let's{" "}
             <span className="underline underline-offset-3 decoration-8 decoration-accent dark:decoration-blue-600">
               improve
