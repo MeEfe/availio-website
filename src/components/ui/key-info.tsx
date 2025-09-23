@@ -40,8 +40,9 @@ function KeyInfo({ className }: KeyInfoProps) {
   ];
 
   return (
-    <div className={cn("w-full max-w-7xl mx-auto py-20 px-6 lg:px-8", className)}>
-      <div className="space-y-24">
+    <div className={cn("bg-foreground w-full py-20", className)}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="space-y-24">
         {items.map((item, index) => (
           <div key={index} className="relative">
             <div className={cn(
@@ -106,6 +107,7 @@ function KeyInfo({ className }: KeyInfoProps) {
             )}
           </div>
         ))}
+        </div>
       </div>
     </div>
   );
