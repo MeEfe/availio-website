@@ -2,6 +2,8 @@ import * as React from "react";
 import { motion, type Transition } from "framer-motion";
 import "./landing-page.css";
 import { KeyInfo } from "@/components/ui/key-info";
+import dashboardImage from "../assets/dashboard.png";
+import mobileImage from "../assets/mobile.png";
 
 type HoverSide = "left" | "right" | null;
 
@@ -10,7 +12,7 @@ export default function LandingPage() {
 
   const baseTop = 70;
   const baseBottom = 30;
-  const delta = 30;
+  const delta = 65;
 
   const { leftPoly, rightPoly } = React.useMemo(() => {
     let top = baseTop;
@@ -66,7 +68,7 @@ export default function LandingPage() {
         </div>
         <div className="w-full h-[80%] box-container">
           <motion.div
-            className="box bg-primary"
+            className="box bg-primary flex items-center p-8 pl-12"
             onHoverStart={() => setHover("left")}
             onHoverEnd={() => setHover(null)}
             animate={{ clipPath: leftPoly }}
@@ -75,11 +77,39 @@ export default function LandingPage() {
               clipPath: leftPoly,
             }}
           >
-            Left content
+            <div className="flex items-center gap-8 w-full">
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
+                  Transform Your Gym
+                </h3>
+                <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
+                  Streamline operations, engage members, and boost revenue with our comprehensive gym management platform.
+                </p>
+                <motion.button
+                  className="bg-accent text-black font-semibold px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors text-sm"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Request Demo
+                </motion.button>
+              </div>
+           <div className="mockup-browser border-base-300 border w-[55%]">
+  <div className="mockup-browser-toolbar">
+  </div>
+  <div className="flex justify-center border-t border-base-300 h-80">
+    <img
+      src={dashboardImage}
+      alt="Dashboard view"
+      className="w-full h-full object-cover"
+      style={{ objectPosition: 'center 0px' }}
+    />
+  </div>
+</div>
+            </div>
           </motion.div>
 
           <motion.div
-            className="box"
+            className="box bg-white flex items-center p-8 pr-12"
             onHoverStart={() => setHover("right")}
             onHoverEnd={() => setHover(null)}
             animate={{ clipPath: rightPoly }}
@@ -88,7 +118,43 @@ export default function LandingPage() {
               clipPath: rightPoly,
             }}
           >
-            Right content
+            <div className="flex items-center gap-22 w-full">
+              <div>
+                <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
+                  Your Fitness Companion
+                </h3>
+                <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
+                  Track workouts, book classes, and connect with your gym community. Download now and start your journey.
+                </p>
+                <div className="flex gap-3">
+                  <motion.button
+                    className="bg-black text-white font-semibold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    App Store
+                  </motion.button>
+                  <motion.button
+                    className="bg-accent text-black font-semibold px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors text-sm"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Play Store
+                  </motion.button>
+                </div>
+              </div>
+          <div className="mockup-phone scale-75 bg-white">
+  <div className="mockup-phone-camera"></div>
+  <div className="mockup-phone-display">
+    <img
+      src={mobileImage}
+      alt="Mobile app"
+      className="w-full h-full object-cover"
+      style={{ objectPosition: 'center 30px' }}
+    />
+  </div>
+</div>
+            </div>
           </motion.div>
         </div>
       </div>
