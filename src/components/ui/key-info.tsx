@@ -50,10 +50,10 @@ function KeyInfo({ className }: KeyInfoProps) {
   return (
     <motion.div
       ref={containerRef}
-      className={cn("bg-foreground w-full py-20 overflow-hidden", className)}
+      className={cn("bg-foreground w-full py-20", className)}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="space-y-24">
+        <div className="space-y-24 pb-20">
         {items.map((item, index) => {
           const itemRef = useRef<HTMLDivElement>(null);
           const isInView = useInView(itemRef, {
