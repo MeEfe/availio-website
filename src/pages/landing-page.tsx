@@ -90,26 +90,75 @@ export default function LandingPage() {
           <motion.h1
             className="uppercase mb-4 font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white relative group cursor-pointer"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: '1.2' }}
+            initial="hidden"
+            animate="visible"
             whileHover="hover"
-            initial="initial"
             variants={{
-              initial: {},
-              hover: {}
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.08,
+                  delayChildren: 0.2
+                }
+              },
+              hover: {
+                scale: 1.02,
+                transition: { duration: 0.3 }
+              }
             }}
           >
             <motion.div
-              className="absolute bottom-0 left-0 h-2 bg-accent rounded-full"
-              variants={{
-                initial: { width: "0%" },
-                hover: { width: "100%" }
+              className="absolute -inset-4 bg-gradient-to-r from-accent/20 via-blue-600/20 to-accent/20 rounded-2xl blur-xl"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: [0, 0.7, 0.4],
+                scale: [0.8, 1.1, 1],
+                rotate: [0, 5, 0]
               }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{
+                duration: 2,
+                times: [0, 0.6, 1],
+                ease: "easeOut"
+              }}
             />
-            Let's{" "}
-            <span className="underline underline-offset-3 decoration-8 decoration-accent dark:decoration-blue-600">
-              improve
-            </span>{" "}
-            your gym experience
+            <motion.div
+              className="absolute bottom-0 left-0 h-2 bg-accent rounded-full"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: 1.5,
+                delay: 1.5,
+                ease: "easeOut"
+              }}
+            />
+            {["Let's", " ", "improve", " ", "your", " ", "gym", " ", "experience"].map((word, index) => (
+              <motion.span
+                key={index}
+                className={word === "improve" ? "underline underline-offset-3 decoration-8 decoration-accent dark:decoration-blue-600" : ""}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 50,
+                    rotateX: -90,
+                    scale: 0.5
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    scale: 1,
+                    transition: {
+                      type: "spring",
+                      damping: 12,
+                      stiffness: 200,
+                      duration: 0.8
+                    }
+                  }
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
           </motion.h1>
         </div>
         <div className="w-full h-[80%] box-container">
