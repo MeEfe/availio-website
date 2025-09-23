@@ -84,7 +84,6 @@ export default function LandingPage() {
   };
 
   return (
-    <>
     <div className="flex items-center flex-col p-6 content-container">
       <div className=" w-[90%] flex gap-[10%] flex-1 justify-center items-center">
         <div className="p-3 w-1/4 content-end h-[80%]">
@@ -214,7 +213,5 @@ export default function LandingPage() {
         </div>
       </div>
     </div>
-    <KeyInfo />
-    </>
   );
 }

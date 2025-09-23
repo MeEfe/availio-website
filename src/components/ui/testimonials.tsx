@@ -77,7 +77,7 @@ function Testimonials({ className }: TestimonialsProps) {
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl pointer-events-none"></div>
 
         {/* Floating quote icon */}
-        <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-2xl flex items-center justify-center shadow-xl rotate-12 group-hover:rotate-0 transition-transform duration-500">
+        <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-foreground to-foreground/80 rounded-2xl flex items-center justify-center shadow-xl rotate-12 group-hover:rotate-0 transition-transform duration-500">
           <Quote className="w-6 h-6 text-white" />
         </div>
 
@@ -104,7 +104,7 @@ function Testimonials({ className }: TestimonialsProps) {
   );
 
   return (
-    <section className={cn("relative w-full py-32 overflow-hidden", className)}>
+    <section className={cn("relative w-full py-32 overflow-hidden bg-background", className)}>
       {/* Elegant background harmonized with theme colors */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-gray-100/40 to-accent/10"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,197,167,0.12),transparent_70%)]"></div>
@@ -115,20 +115,20 @@ function Testimonials({ className }: TestimonialsProps) {
         <div className="space-y-6">
           {/* Overline text */}
           <div className="flex items-center justify-center space-x-3">
-            <div className="w-12 h-[2px] bg-gradient-to-r from-transparent to-accent"></div>
-            <span className="text-accent font-bold text-sm tracking-[0.2em] uppercase">
+            <div className="w-12 h-[2px] bg-gradient-to-r from-transparent to-foreground"></div>
+            <span className="text-foreground font-bold text-sm tracking-[0.2em] uppercase">
               Customer Stories
             </span>
-            <div className="w-12 h-[2px] bg-gradient-to-l from-transparent to-accent"></div>
+            <div className="w-12 h-[2px] bg-gradient-to-l from-transparent to-foreground"></div>
           </div>
 
           {/* Main heading with gradient text */}
           <h2 className="text-5xl lg:text-7xl font-black tracking-tight">
-            <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text text-transparent">
               Trusted by
             </span>
             <br />
-            <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-foreground/60 to-foreground bg-clip-text text-transparent">
               Leading Gyms
             </span>
           </h2>

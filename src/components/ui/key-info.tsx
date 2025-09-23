@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Card, CardContent } from "./card";
 
 interface KeyInfoItem {
   number: string;

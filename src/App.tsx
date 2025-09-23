@@ -3,6 +3,7 @@ import Header from "./components/ui/header";
 import LandingPage from "./pages/landing-page";
 import ThreeCursor from "./components/ui/three-cursor";
 import { Testimonials } from "./components/ui/testimonials";
+import { KeyInfo } from "./components/ui/key-info";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <ThreeCursor />
       <Header />
       <LandingPage />
+      <KeyInfo />
       <Testimonials />
       <Footer />
     </>
