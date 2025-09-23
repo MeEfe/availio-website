@@ -1,11 +1,20 @@
+import { Routes, Route } from "react-router-dom";
+import Footer from "./components/ui/footer";
 import Header from "./components/ui/header";
-import LandingPage from "./pages/landing-page";
+import ThreeCursor from "./components/ui/three-cursor";
+import Home from "./pages/home";
+import Pricing from "./pages/pricing";
 
 function App() {
   return (
     <>
+      <ThreeCursor />
       <Header />
-      <LandingPage />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pricing" element={<Pricing />} />
+      </Routes>
+      <Footer />
     </>
   );
 }

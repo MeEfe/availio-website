@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "daisyui";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -75,6 +76,7 @@
   --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.3006 0.0706 251.9346);
+  --alternative-background: oklch(25.327% 0.01592 252.459);
   --card: oklch(0.9702 0 0);
   --card-foreground: oklch(0.3006 0.0706 251.9346);
   --popover: oklch(0.9702 0 0);
@@ -200,7 +202,7 @@
   html,
   body,
   #root {
-    @apply w-screen h-screen m-0 p-0 overflow-hidden;
+    @apply h-screen m-0 p-0 overflow-auto;
   }
   * {
     @apply border-border outline-ring/50;
@@ -209,4 +211,38 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+}
+
+/* Testimonials marquee animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 60s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 60s linear infinite;
+}
+
+/* Enhanced shadow utilities for testimonials */
+.shadow-3xl {
+  box-shadow:
+    0 35px 60px -12px rgba(0, 0, 0, 0.25),
+    0 10px 20px -5px rgba(0, 0, 0, 0.1);
 }
