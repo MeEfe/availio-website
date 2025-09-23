@@ -1,5 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,7 +23,8 @@ import {
 // --- Types -----------------------------------------------------------------
 export type FooterLink = {
   label: string;
-  href: string;
+  href?: string;
+  to?: string;
   external?: boolean;
 };
 
@@ -45,7 +47,7 @@ const defaultColumns: FooterColumn[] = [
     title: "Product",
     links: [
       { label: "Features", href: "#" },
-      { label: "Pricing", href: "#" },
+      { label: "Pricing", to: "/pricing" },
       { label: "Changelog", href: "#" },
       { label: "Status", href: "/status" },
     ],
@@ -136,29 +138,53 @@ export default function ElegantFooter({
               <ul className="space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <motion.a
-                      href={link.href}
-                      {...(link.external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="text-slate-300 hover:text-white transition-all duration-300 ease-out relative inline-block group text-sm"
-                      whileHover="hover"
-                      initial="initial"
-                      variants={{
-                        initial: {},
-                        hover: {}
-                      }}
-                    >
+                    {link.to ? (
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-accent rounded-full"
+                        className="text-slate-300 hover:text-white transition-all duration-300 ease-out relative inline-block group text-sm"
+                        whileHover="hover"
+                        initial="initial"
                         variants={{
-                          initial: { width: "0%" },
-                          hover: { width: "100%" }
+                          initial: {},
+                          hover: {}
                         }}
-                        transition={{ duration: 0.4, ease: "easeOut" }}
-                      />
-                      {link.label}
-                    </motion.a>
+                      >
+                        <Link to={link.to} className="block">
+                          <motion.div
+                            className="absolute bottom-0 left-0 h-0.5 bg-accent rounded-full"
+                            variants={{
+                              initial: { width: "0%" },
+                              hover: { width: "100%" }
+                            }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                          />
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    ) : (
+                      <motion.a
+                        href={link.href}
+                        {...(link.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                        className="text-slate-300 hover:text-white transition-all duration-300 ease-out relative inline-block group text-sm"
+                        whileHover="hover"
+                        initial="initial"
+                        variants={{
+                          initial: {},
+                          hover: {}
+                        }}
+                      >
+                        <motion.div
+                          className="absolute bottom-0 left-0 h-0.5 bg-accent rounded-full"
+                          variants={{
+                            initial: { width: "0%" },
+                            hover: { width: "100%" }
+                          }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                        />
+                        {link.label}
+                      </motion.a>
+                    )}
                   </li>
                 ))}
               </ul>
