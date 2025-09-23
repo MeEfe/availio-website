@@ -4,6 +4,8 @@ import "./landing-page.css";
 import { KeyInfo } from "@/components/ui/key-info";
 import dashboardImage from "../assets/dashboard.png";
 import mobileImage from "../assets/mobile.png";
+import appStoreIcon from "../assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg";
+import playStoreIcon from "../assets/GetItOnGooglePlay_Badge_Web_color_English.png";
 
 type HoverSide = "left" | "right" | null;
 
@@ -126,34 +128,42 @@ export default function LandingPage() {
                 <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
                   Track workouts, book classes, and connect with your gym community. Download now and start your journey.
                 </p>
-                <div className="flex gap-3">
+                <div className="flex gap-3 mb-4">
                   <motion.button
-                    className="bg-black text-white font-semibold px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-sm"
+                    className="cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    App Store
+                    <img
+                      src={appStoreIcon}
+                      alt="Download on the App Store"
+                      className="h-10"
+                    />
                   </motion.button>
                   <motion.button
-                    className="bg-accent text-black font-semibold px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors text-sm"
+                    className="cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Play Store
+                    <img
+                      src={playStoreIcon}
+                      alt="Get it on Google Play"
+                      className="h-10"
+                    />
                   </motion.button>
                 </div>
               </div>
-          <div className="mockup-phone scale-75 bg-white">
-  <div className="mockup-phone-camera"></div>
-  <div className="mockup-phone-display">
-    <img
-      src={mobileImage}
-      alt="Mobile app"
-      className="w-full h-full object-cover"
-      style={{ objectPosition: 'center 30px' }}
-    />
-  </div>
-</div>
+              <div className="mockup-phone scale-75 bg-white">
+                <div className="mockup-phone-camera"></div>
+                <div className="mockup-phone-display">
+                  <img
+                    src={mobileImage}
+                    alt="Mobile app"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center 30px' }}
+                  />
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
