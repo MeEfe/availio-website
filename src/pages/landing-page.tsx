@@ -174,10 +174,10 @@ export default function LandingPage() {
           >
             <div className="flex items-center gap-8 w-full">
               <div className="flex-1">
-                <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
+                <h3 className="text-2xl font-bold text-foreground mb-3">
                   Transform Your Gym
                 </h3>
-                <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
+                <p className="text-foreground/80 mb-6 text-sm leading-relaxed">
                   Streamline operations, engage members, and boost revenue with our comprehensive gym management platform.
                 </p>
                 <motion.button
@@ -204,7 +204,7 @@ export default function LandingPage() {
           </motion.div>
 
           <motion.div
-            className="box bg-white flex items-center p-8 pr-12"
+            className="box bg-background flex items-center p-8 pr-12"
             onHoverStart={() => handleHoverStart("right")}
             onHoverEnd={handleHoverEnd}
             animate={{ clipPath: rightPoly }}
@@ -215,10 +215,10 @@ export default function LandingPage() {
           >
             <div className="flex items-center gap-22 w-full">
               <div>
-                <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
+                <h3 className="text-2xl font-bold text-foreground mb-3">
                   Your Fitness Companion
                 </h3>
-                <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
+                <p className="text-foreground/80 mb-6 text-sm leading-relaxed">
                   Track workouts, book classes, and connect with your gym community. Download now and start your journey.
                 </p>
                 <div className="flex gap-3 mb-4">
@@ -246,7 +246,7 @@ export default function LandingPage() {
                   </motion.button>
                 </div>
               </div>
-              <div className="mockup-phone scale-75 bg-white">
+              <div className="mockup-phone scale-75 bg-background">
                 <div className="mockup-phone-camera"></div>
                 <div className="mockup-phone-display">
                   <img

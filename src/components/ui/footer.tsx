@@ -122,17 +122,17 @@ export default function ElegantFooter({
     <footer
       role="contentinfo"
       aria-labelledby="footer-heading"
-      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white"
+      className="relative bg-gradient-to-br from-foreground via-foreground/90 to-foreground text-background"
     >
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:20px_20px] opacity-20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:20px_20px] opacity-20"></div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         {/* Middle: Link columns */}
         <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 md:grid-cols-4 mb-12 justify-center items-start text-center">
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-semibold text-white mb-4 tracking-wide">
+              <h3 className="text-sm font-semibold text-background mb-4 tracking-wide">
                 {col.title}
               </h3>
               <ul className="space-y-3">
@@ -140,7 +140,7 @@ export default function ElegantFooter({
                   <li key={link.label}>
                     {link.to ? (
                       <motion.div
-                        className="text-slate-300 hover:text-white transition-all duration-300 ease-out relative inline-block group text-sm"
+                        className="text-background/80 hover:text-background transition-all duration-300 ease-out relative inline-block group text-sm"
                         whileHover="hover"
                         initial="initial"
                         variants={{
@@ -166,7 +166,7 @@ export default function ElegantFooter({
                         {...(link.external
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
-                        className="text-slate-300 hover:text-white transition-all duration-300 ease-out relative inline-block group text-sm"
+                        className="text-background/80 hover:text-background transition-all duration-300 ease-out relative inline-block group text-sm"
                         whileHover="hover"
                         initial="initial"
                         variants={{
@@ -192,27 +192,27 @@ export default function ElegantFooter({
           ))}
         </nav>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent my-12"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-background/40 to-transparent my-12"></div>
 
         {/* Bottom: meta row */}
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           {/* Contact mini-block */}
           <div className="flex flex-col gap-3 text-sm">
-            <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
-              <MapPin className="h-5 w-5 text-slate-400 group-hover:text-slate-300 transition-colors" />
+            <div className="flex items-center gap-3 text-background/80 hover:text-background transition-colors group">
+              <MapPin className="h-5 w-5 text-background/60 group-hover:text-background/80 transition-colors" />
               <span>123 Market Street, San Francisco, CA</span>
             </div>
-            <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
-              <Phone className="h-5 w-5 text-slate-400 group-hover:text-slate-300 transition-colors" />
-              <a href="tel:+1234567890" className="hover:text-white transition-colors">
+            <div className="flex items-center gap-3 text-background/80 hover:text-background transition-colors group">
+              <Phone className="h-5 w-5 text-background/60 group-hover:text-background/80 transition-colors" />
+              <a href="tel:+1234567890" className="hover:text-background transition-colors">
                 +1 (234) 567-890
               </a>
             </div>
-            <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
-              <Mail className="h-5 w-5 text-slate-400 group-hover:text-slate-300 transition-colors" />
+            <div className="flex items-center gap-3 text-background/80 hover:text-background transition-colors group">
+              <Mail className="h-5 w-5 text-background/60 group-hover:text-background/80 transition-colors" />
               <a
                 href="mailto:support@availio.com"
-                className="hover:text-white transition-colors"
+                className="hover:text-background transition-colors"
               >
                 support@availio.com
               </a>
@@ -234,7 +234,7 @@ export default function ElegantFooter({
                         variant="ghost"
                         size="icon"
                         aria-label="GitHub"
-                        className="rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
+                        className="rounded-full bg-background/20 hover:bg-background/30 text-background/80 hover:text-background border border-background/30 hover:border-background/50 transition-all duration-300"
                       >
                         <Github className="h-5 w-5" />
                         <span className="sr-only">GitHub</span>
@@ -254,7 +254,7 @@ export default function ElegantFooter({
                         variant="ghost"
                         size="icon"
                         aria-label="Twitter"
-                        className="rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
+                        className="rounded-full bg-background/20 hover:bg-background/30 text-background/80 hover:text-background border border-background/30 hover:border-background/50 transition-all duration-300"
                       >
                         <Twitter className="h-5 w-5" />
                         <span className="sr-only">Twitter</span>
@@ -274,7 +274,7 @@ export default function ElegantFooter({
                         variant="ghost"
                         size="icon"
                         aria-label="LinkedIn"
-                        className="rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
+                        className="rounded-full bg-background/20 hover:bg-background/30 text-background/80 hover:text-background border border-background/30 hover:border-background/50 transition-all duration-300"
                       >
                         <Linkedin className="h-5 w-5" />
                         <span className="sr-only">LinkedIn</span>
@@ -287,7 +287,7 @@ export default function ElegantFooter({
             </TooltipProvider>
 
             <div className="hidden md:block">
-              <div className="w-px h-8 bg-slate-600"></div>
+              <div className="w-px h-8 bg-background/40"></div>
             </div>
 
             {/* Newsletter */}
@@ -297,7 +297,7 @@ export default function ElegantFooter({
               className="w-full max-w-md"
             >
               <div className="grid gap-3">
-                <Label htmlFor="email" className="text-white font-medium">
+                <Label htmlFor="email" className="text-background font-medium">
                   Stay updated with our newsletter
                 </Label>
                 <div className="flex gap-2">
@@ -311,7 +311,7 @@ export default function ElegantFooter({
                       setEmail(e.target.value);
                       if (submitState !== "idle") setSubmitState("idle");
                     }}
-                    className="flex-1 bg-slate-800 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-400 focus:ring-blue-400/20"
+                    className="flex-1 bg-background/20 border-background/30 text-background placeholder:text-background/60 focus:border-accent focus:ring-accent/20"
                     autoComplete="email"
                     aria-invalid={submitState === "error"}
                     aria-describedby="subscribe-hint"
@@ -321,25 +321,25 @@ export default function ElegantFooter({
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   >
-                    <Button type="submit" className="shrink-0 bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white text-sm px-3 py-2">
+                    <Button type="submit" className="shrink-0 bg-background/30 hover:bg-background/40 border border-background/40 hover:border-background/50 text-background text-sm px-3 py-2">
                       <Send className="h-4 w-4" />
                     </Button>
                   </motion.div>
                 </div>
                 <p
                   id="subscribe-hint"
-                  className="text-xs text-slate-400"
+                  className="text-xs text-background/60"
                 >
                   Join our monthly newsletter. No spam. Unsubscribe anytime.
                 </p>
                 <div className="text-sm" aria-live="polite" aria-atomic="true">
                   {submitState === "success" && (
-                    <span className="text-green-400">
+                    <span className="text-accent">
                       You\'re in! Please check your inbox to confirm.
                     </span>
                   )}
                   {submitState === "error" && (
-                    <span className="text-red-400">
+                    <span className="text-destructive">
                       Please enter a valid email address.
                     </span>
                   )}
@@ -349,10 +349,10 @@ export default function ElegantFooter({
           </div>
         </div>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent my-8"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-background/40 to-transparent my-8"></div>
 
         <div className="flex flex-col items-center justify-center text-center">
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-background/60">
             © {new Date().getFullYear()} {companyName}. All rights reserved.
           </p>
         </div>
