@@ -6,7 +6,8 @@
       "Bash(pnpm install:*)",
       "mcp__ide__getDiagnostics",
       "WebFetch(domain:www.npmjs.com)",
-      "Bash(pnpm uninstall:*)"
+      "Bash(pnpm uninstall:*)",
+      "Bash(pnpm build:*)"
     ],
     "deny": [],
     "ask": []

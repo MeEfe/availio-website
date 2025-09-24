@@ -1,7 +1,5 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 type PlanType = "gyms" | "members";
@@ -108,25 +106,25 @@ export default function Pricing() {
             )}
           >
             <div className="flex justify-center px-4">
-              <Card className="max-w-2xl w-full bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-2 border-foreground/20">
-                <CardHeader className="text-center pb-6 sm:pb-8 px-4 sm:px-6">
+              <div className="card max-w-2xl w-full bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-2 border-foreground/20">
+                <div className="text-center pb-6 sm:pb-8 px-4 sm:px-6">
                   <div className="mb-4">
                     <span className="bg-foreground text-background px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wide">
                       Enterprise
                     </span>
                   </div>
-                  <CardTitle className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+                  <div className="card-title text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                     Gym Management Platform
-                  </CardTitle>
-                  <CardDescription className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mt-3 sm:mt-4">
+                  </div>
+                  <div className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mt-3 sm:mt-4">
                     Complete solution for modern gym operations
-                  </CardDescription>
+                  </div>
                   <div className="mt-4 sm:mt-6">
                     <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">Custom</span>
                     <span className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 ml-2">pricing</span>
                   </div>
-                </CardHeader>
-                <CardContent className="pt-0 px-4 sm:px-6">
+                </div>
+                <div className="pt-0 px-4 sm:px-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     {features.gyms.map((feature, index) => (
                       <motion.div
@@ -145,15 +143,15 @@ export default function Pricing() {
                     whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)" }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Button className="w-full bg-foreground text-background hover:bg-foreground/90 font-semibold py-4 sm:py-6 text-base sm:text-lg">
+                    <button className="btn btn-primary w-full font-semibold py-4 sm:py-6 text-base sm:text-lg bg-foreground text-background hover:bg-foreground/90 border-0">
                       Contact Sales
-                    </Button>
+                    </button>
                   </motion.div>
                   <p className="text-center text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-3 sm:mt-4">
                     Get a custom quote based on your gym's needs
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </div>
           </motion.div>
 
@@ -166,20 +164,20 @@ export default function Pricing() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto px-4 pt-6 sm:pt-8">
               {/* Free Plan */}
-              <Card className="bg-white dark:bg-gray-800 h-full flex flex-col">
-                <CardHeader className="text-center pb-6 sm:pb-8 px-4 sm:px-6 pt-6 sm:pt-8">
-                  <CardTitle className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="card bg-white dark:bg-gray-800 h-full flex flex-col">
+                <div className="text-center pb-6 sm:pb-8 px-4 sm:px-6 pt-6 sm:pt-8">
+                  <div className="card-title text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                     Free
-                  </CardTitle>
-                  <CardDescription className="text-gray-600 dark:text-gray-300 mt-2">
+                  </div>
+                  <div className="text-gray-600 dark:text-gray-300 mt-2">
                     Perfect for getting started
-                  </CardDescription>
+                  </div>
                   <div className="mt-4 sm:mt-6">
                     <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">$0</span>
                     <span className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">/month</span>
                   </div>
-                </CardHeader>
-                <CardContent className="pt-0 px-4 sm:px-6 flex-1 flex flex-col">
+                </div>
+                <div className="pt-0 px-4 sm:px-6 flex-1 flex flex-col">
                   <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 flex-1">
                     {features.members.free.map((feature, index) => (
                       <motion.div
@@ -194,11 +192,11 @@ export default function Pricing() {
                       </motion.div>
                     ))}
                   </div>
-                  <Button variant="outline" className="w-full py-4 sm:py-6 text-base sm:text-lg font-semibold border-foreground text-foreground hover:bg-foreground/5 hover:border-foreground/70">
+                  <button className="btn btn-outline w-full py-4 sm:py-6 text-base sm:text-lg font-semibold border-foreground text-foreground hover:bg-foreground/5 hover:border-foreground/70">
                     Download Free
-                  </Button>
-                </CardContent>
-              </Card>
+                  </button>
+                </div>
+              </div>
 
               {/* Premium Plan */}
               <div className="relative">
@@ -207,20 +205,20 @@ export default function Pricing() {
                     Most Popular
                   </span>
                 </div>
-                <Card className="bg-gradient-to-br from-foreground/5 to-foreground/10 border-2 border-foreground/20 h-full flex flex-col">
-                  <CardHeader className="text-center pb-6 sm:pb-8 pt-8 sm:pt-12 px-4 sm:px-6">
-                    <CardTitle className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                <div className="card bg-gradient-to-br from-foreground/5 to-foreground/10 border-2 border-foreground/20 h-full flex flex-col">
+                  <div className="text-center pb-6 sm:pb-8 pt-8 sm:pt-12 px-4 sm:px-6">
+                    <div className="card-title text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                       Premium
-                    </CardTitle>
-                    <CardDescription className="text-gray-600 dark:text-gray-300 mt-2">
+                    </div>
+                    <div className="text-gray-600 dark:text-gray-300 mt-2">
                       Unlock your full potential
-                    </CardDescription>
+                    </div>
                     <div className="mt-4 sm:mt-6">
                       <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">$9.99</span>
                       <span className="text-lg sm:text-xl text-gray-600 dark:text-gray-300">/month</span>
                     </div>
-                  </CardHeader>
-                  <CardContent className="pt-0 px-4 sm:px-6 flex-1 flex flex-col">
+                  </div>
+                  <div className="pt-0 px-4 sm:px-6 flex-1 flex flex-col">
                     <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 flex-1">
                       {features.members.premium.map((feature, index) => (
                         <motion.div
@@ -239,15 +237,15 @@ export default function Pricing() {
                       whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)" }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Button className="w-full bg-foreground text-background hover:bg-foreground/90 font-semibold py-4 sm:py-6 text-base sm:text-lg">
+                      <button className="btn btn-primary w-full font-semibold py-4 sm:py-6 text-base sm:text-lg bg-foreground text-background hover:bg-foreground/90 border-0">
                         Start Premium
-                      </Button>
+                      </button>
                     </motion.div>
                     <p className="text-center text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-3 sm:mt-4">
                       7-day free trial included
                     </p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

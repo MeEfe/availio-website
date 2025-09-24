@@ -1,7 +1,6 @@
 import * as React from "react";
 import { motion, type Transition } from "framer-motion";
 import "./landing-page.css";
-import { KeyInfo } from "@/components/ui/key-info";
 import dashboardImage from "../assets/dashboard.png";
 import mobileImage from "../assets/mobile.png";
 import appStoreIcon from "../assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg";

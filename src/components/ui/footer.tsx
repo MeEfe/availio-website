@@ -1,15 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import {
   Github,
   Twitter,
@@ -81,11 +72,6 @@ const defaultColumns: FooterColumn[] = [
   },
 ];
 
-const defaultLanguages = [
-  { code: "en", label: "English" },
-  { code: "de", label: "Deutsch" },
-  { code: "es", label: "Español" },
-];
 
 // --- Component --------------------------------------------------------------
 export default function ElegantFooter({
@@ -221,70 +207,50 @@ export default function ElegantFooter({
 
           {/* Social + Legal */}
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-6 w-full md:w-auto">
-            <TooltipProvider>
               <div className="flex items-center gap-2">
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        aria-label="GitHub"
-                        className="rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
-                      >
-                        <Github className="h-5 w-5" />
-                        <span className="sr-only">GitHub</span>
-                      </Button>
-                    </motion.div>
-                  </TooltipTrigger>
-                  <TooltipContent>GitHub</TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        aria-label="Twitter"
-                        className="rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
-                      >
-                        <Twitter className="h-5 w-5" />
-                        <span className="sr-only">Twitter</span>
-                      </Button>
-                    </motion.div>
-                  </TooltipTrigger>
-                  <TooltipContent>Twitter / X</TooltipContent>
-                </Tooltip>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        aria-label="LinkedIn"
-                        className="rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
-                      >
-                        <Linkedin className="h-5 w-5" />
-                        <span className="sr-only">LinkedIn</span>
-                      </Button>
-                    </motion.div>
-                  </TooltipTrigger>
-                  <TooltipContent>LinkedIn</TooltipContent>
-                </Tooltip>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <button
+                    aria-label="GitHub"
+                    className="btn btn-ghost btn-square tooltip rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
+                    data-tip="GitHub"
+                  >
+                    <Github className="h-5 w-5" />
+                    <span className="sr-only">GitHub</span>
+                  </button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <button
+                    aria-label="Twitter"
+                    className="btn btn-ghost btn-square tooltip rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
+                    data-tip="Twitter / X"
+                  >
+                    <Twitter className="h-5 w-5" />
+                    <span className="sr-only">Twitter</span>
+                  </button>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <button
+                    aria-label="LinkedIn"
+                    className="btn btn-ghost btn-square tooltip rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
+                    data-tip="LinkedIn"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                    <span className="sr-only">LinkedIn</span>
+                  </button>
+                </motion.div>
               </div>
-            </TooltipProvider>
 
             <div className="hidden md:block">
               <div className="w-px h-8 bg-slate-600"></div>
@@ -297,11 +263,11 @@ export default function ElegantFooter({
               className="w-full max-w-md"
             >
               <div className="grid gap-3">
-                <Label htmlFor="email" className="text-white font-medium">
+                <label htmlFor="email" className="text-white font-medium">
                   Stay updated with our newsletter
-                </Label>
+                </label>
                 <div className="flex gap-2">
-                  <Input
+                  <input
                     id="email"
                     name="email"
                     type="email"
@@ -311,7 +277,7 @@ export default function ElegantFooter({
                       setEmail(e.target.value);
                       if (submitState !== "idle") setSubmitState("idle");
                     }}
-                    className="flex-1 bg-slate-800 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-400 focus:ring-blue-400/20"
+                    className="input flex-1 bg-slate-800 border-slate-600 text-white placeholder:text-slate-400 focus:border-blue-400 focus:ring-blue-400/20"
                     autoComplete="email"
                     aria-invalid={submitState === "error"}
                     aria-describedby="subscribe-hint"
@@ -321,9 +287,9 @@ export default function ElegantFooter({
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   >
-                    <Button type="submit" className="shrink-0 bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white text-sm px-3 py-2">
+                    <button type="submit" className="btn btn-primary shrink-0 bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white text-sm px-3 py-2">
                       <Send className="h-4 w-4" />
-                    </Button>
+                    </button>
                   </motion.div>
                 </div>
                 <p

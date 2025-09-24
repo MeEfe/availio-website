@@ -1,9 +1,3 @@
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuLink,
-} from "@/components/ui/navigation-menu";
 import { Link } from "react-router-dom";
 import ReactLogo from "../../assets/logo.svg";
 
@@ -35,34 +29,20 @@ export default function Header() {
           </Link>
 
           <nav aria-label="Primary" className="hidden md:block">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link to="/" className="px-3 py-2">
-                      Home
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="px-3 py-2">
-                    Products
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link to="/pricing" className="px-3 py-2">
-                      Pricing
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="px-3 py-2">
-                    Contact
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            <div className="flex items-center space-x-1">
+              <Link to="/" className="px-3 py-2 rounded-md hover:bg-gray-100 transition-colors">
+                Home
+              </Link>
+              <a href="#" className="px-3 py-2 rounded-md hover:bg-gray-100 transition-colors">
+                Products
+              </a>
+              <Link to="/pricing" className="px-3 py-2 rounded-md hover:bg-gray-100 transition-colors">
+                Pricing
+              </Link>
+              <a href="#" className="px-3 py-2 rounded-md hover:bg-gray-100 transition-colors">
+                Contact
+              </a>
+            </div>
           </nav>
         </div>
       </div>
