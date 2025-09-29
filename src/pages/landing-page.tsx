@@ -189,10 +189,8 @@ export default function LandingPage() {
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
               onClick={() => handleHoverStart("left")}
-              animate={{ scale: hover === "left" ? 1.15 : 1 }}
-              whileHover={{ scale: hover === "left" ? 1.17 : 1.02 }}
-              whileTap={{ scale: hover === "left" ? 1.13 : 0.98 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <div className="w-2 h-2 rounded-full bg-current"></div>
               For Gym Owners
@@ -207,10 +205,8 @@ export default function LandingPage() {
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
               onClick={() => handleHoverStart("right")}
-              animate={{ scale: hover === "right" ? 1.15 : 1 }}
-              whileHover={{ scale: hover === "right" ? 1.17 : 1.02 }}
-              whileTap={{ scale: hover === "right" ? 1.13 : 0.98 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <div className="w-2 h-2 rounded-full bg-current"></div>
               For Gym Members
@@ -325,7 +321,7 @@ export default function LandingPage() {
                     </motion.button>
                   </div>
                 </div>
-                <div className="mockup-phone scale-75 bg-white">
+                <div className="mockup-phone scale-30 lg:scale-40 xl:scale-50 2xl:scale-55 bg-white">
                   <div className="mockup-phone-camera"></div>
                   <div className="mockup-phone-display">
                     <img
