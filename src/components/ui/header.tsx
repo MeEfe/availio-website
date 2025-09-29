@@ -45,8 +45,10 @@ export default function Header() {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="px-3 py-2">
-                    Products
+                  <NavigationMenuLink asChild>
+                    <Link to="/features" className="px-3 py-2">
+                      Features
+                    </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>

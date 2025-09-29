@@ -4,6 +4,7 @@ import Header from "./components/ui/header";
 import ThreeCursor from "./components/ui/three-cursor";
 import Home from "./pages/home";
 import Pricing from "./pages/pricing";
+import Features from "./pages/features";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/features" element={<Features />} />
       </Routes>
       <Footer />
     </>
