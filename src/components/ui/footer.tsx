@@ -12,12 +12,12 @@ import {
 } from "@/components/ui/tooltip";
 import {
   Github,
-  Twitter,
   Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
+  Instagram,
 } from "lucide-react";
 
 // --- Types -----------------------------------------------------------------
@@ -48,43 +48,19 @@ const defaultColumns: FooterColumn[] = [
     links: [
       { label: "Features", href: "#" },
       { label: "Pricing", to: "/pricing" },
-      { label: "Changelog", href: "#" },
-      { label: "Status", href: "/status" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Press", href: "#" },
       { label: "Contact", href: "#" },
     ],
   },
   {
-    title: "Resources",
-    links: [
-      { label: "Docs", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Guides", href: "#" },
-      { label: "Community", href: "#" },
-    ],
-  },
-  {
     title: "Legal",
-    links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Security", href: "#" },
-      { label: "DPA", href: "#" },
-    ],
+    links: [{ label: "Imprint", href: "/imprint" }],
   },
-];
-
-const defaultLanguages = [
-  { code: "en", label: "English" },
-  { code: "de", label: "Deutsch" },
-  { code: "es", label: "Español" },
 ];
 
 // --- Component --------------------------------------------------------------
@@ -129,7 +105,10 @@ export default function ElegantFooter({
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         {/* Middle: Link columns */}
-        <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 md:grid-cols-4 mb-12 justify-center items-start text-center">
+        <nav
+          aria-label="Footer navigation"
+          className="grid grid-cols-2 gap-8 md:grid-cols-3 mb-12 justify-center items-start text-center"
+        >
           {columns.map((col) => (
             <div key={col.title}>
               <h3 className="text-sm font-semibold text-white mb-4 tracking-wide">
@@ -145,7 +124,7 @@ export default function ElegantFooter({
                         initial="initial"
                         variants={{
                           initial: {},
-                          hover: {}
+                          hover: {},
                         }}
                       >
                         <Link to={link.to} className="block">
@@ -153,7 +132,7 @@ export default function ElegantFooter({
                             className="absolute bottom-0 left-0 h-0.5 bg-accent rounded-full"
                             variants={{
                               initial: { width: "0%" },
-                              hover: { width: "100%" }
+                              hover: { width: "100%" },
                             }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                           />
@@ -171,14 +150,14 @@ export default function ElegantFooter({
                         initial="initial"
                         variants={{
                           initial: {},
-                          hover: {}
+                          hover: {},
                         }}
                       >
                         <motion.div
                           className="absolute bottom-0 left-0 h-0.5 bg-accent rounded-full"
                           variants={{
                             initial: { width: "0%" },
-                            hover: { width: "100%" }
+                            hover: { width: "100%" },
                           }}
                           transition={{ duration: 0.4, ease: "easeOut" }}
                         />
@@ -200,11 +179,14 @@ export default function ElegantFooter({
           <div className="flex flex-col gap-3 text-sm">
             <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
               <MapPin className="h-5 w-5 text-slate-400 group-hover:text-slate-300 transition-colors" />
-              <span>123 Market Street, San Francisco, CA</span>
+              <span>Dornbirn</span>
             </div>
             <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
               <Phone className="h-5 w-5 text-slate-400 group-hover:text-slate-300 transition-colors" />
-              <a href="tel:+1234567890" className="hover:text-white transition-colors">
+              <a
+                href="tel:+1234567890"
+                className="hover:text-white transition-colors"
+              >
                 +1 (234) 567-890
               </a>
             </div>
@@ -253,15 +235,41 @@ export default function ElegantFooter({
                       <Button
                         variant="ghost"
                         size="icon"
-                        aria-label="Twitter"
+                        aria-label="X (formerly Twitter)"
                         className="rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
                       >
-                        <Twitter className="h-5 w-5" />
-                        <span className="sr-only">Twitter</span>
+                        <svg
+                          className="h-5 w-5"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                        <span className="sr-only">X</span>
                       </Button>
                     </motion.div>
                   </TooltipTrigger>
-                  <TooltipContent>Twitter / X</TooltipContent>
+                  <TooltipContent>X</TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        aria-label="Instagram"
+                        className="rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all duration-300"
+                      >
+                        <Instagram className="h-5 w-5" />
+                        <span className="sr-only">Instagram</span>
+                      </Button>
+                    </motion.div>
+                  </TooltipTrigger>
+                  <TooltipContent>Instagram</TooltipContent>
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -321,15 +329,15 @@ export default function ElegantFooter({
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   >
-                    <Button type="submit" className="shrink-0 bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white text-sm px-3 py-2">
+                    <Button
+                      type="submit"
+                      className="shrink-0 bg-slate-700 hover:bg-slate-600 border border-slate-600 hover:border-slate-500 text-white text-sm px-3 py-2"
+                    >
                       <Send className="h-4 w-4" />
                     </Button>
                   </motion.div>
                 </div>
-                <p
-                  id="subscribe-hint"
-                  className="text-xs text-slate-400"
-                >
+                <p id="subscribe-hint" className="text-xs text-slate-400">
                   Join our monthly newsletter. No spam. Unsubscribe anytime.
                 </p>
                 <div className="text-sm" aria-live="polite" aria-atomic="true">
