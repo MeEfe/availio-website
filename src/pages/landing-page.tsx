@@ -12,7 +12,7 @@ type HoverSide = "left" | "right" | null;
 export default function LandingPage() {
   const [hover, setHover] = React.useState<HoverSide>(() => {
     // Load from localStorage or default to "left" (dashboard)
-    const saved = localStorage.getItem('landing-hover-preference');
+    const saved = localStorage.getItem("landing-hover-preference");
     return (saved as HoverSide) || "left";
   });
 
@@ -22,7 +22,7 @@ export default function LandingPage() {
   const handleHoverStart = (side: "left" | "right") => {
     userInteractedRef.current = true;
     setHover(side);
-    localStorage.setItem('landing-hover-preference', side);
+    localStorage.setItem("landing-hover-preference", side);
 
     // Clear existing timer and restart it
     if (timerRef.current) {
@@ -38,9 +38,9 @@ export default function LandingPage() {
 
   const startAutoTimer = () => {
     timerRef.current = setInterval(() => {
-      setHover(current => {
+      setHover((current) => {
         const newSide = current === "left" ? "right" : "left";
-        localStorage.setItem('landing-hover-preference', newSide);
+        localStorage.setItem("landing-hover-preference", newSide);
         return newSide;
       });
     }, 7000);
@@ -89,7 +89,10 @@ export default function LandingPage() {
         <div className="p-3 w-1/4 content-end h-[80%]">
           <motion.h1
             className="uppercase mb-4 font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white relative group cursor-pointer"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: '1.2' }}
+            style={{
+              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+              lineHeight: "1.2",
+            }}
             initial="hidden"
             animate="visible"
             whileHover="hover"
@@ -98,13 +101,13 @@ export default function LandingPage() {
               visible: {
                 transition: {
                   staggerChildren: 0.08,
-                  delayChildren: 0.2
-                }
+                  delayChildren: 0.2,
+                },
               },
               hover: {
                 scale: 1.02,
-                transition: { duration: 0.3 }
-              }
+                transition: { duration: 0.3 },
+              },
             }}
           >
             <motion.div
@@ -113,12 +116,12 @@ export default function LandingPage() {
               animate={{
                 opacity: [0, 0.7, 0.4],
                 scale: [0.8, 1.1, 1],
-                rotate: [0, 5, 0]
+                rotate: [0, 5, 0],
               }}
               transition={{
                 duration: 2,
                 times: [0, 0.6, 1],
-                ease: "easeOut"
+                ease: "easeOut",
               }}
             />
             <motion.div
@@ -128,19 +131,33 @@ export default function LandingPage() {
               transition={{
                 duration: 1.5,
                 delay: 1.5,
-                ease: "easeOut"
+                ease: "easeOut",
               }}
             />
-            {["Let's", " ", "improve", " ", "your", " ", "gym", " ", "experience"].map((word, index) => (
+            {[
+              "Let's",
+              " ",
+              "improve",
+              " ",
+              "your",
+              " ",
+              "gym",
+              " ",
+              "experience",
+            ].map((word, index) => (
               <motion.span
                 key={index}
-                className={word === "improve" ? "underline underline-offset-3 decoration-8 decoration-accent dark:decoration-blue-600" : ""}
+                className={
+                  word === "improve"
+                    ? "underline underline-offset-3 decoration-8 decoration-accent dark:decoration-blue-600"
+                    : ""
+                }
                 variants={{
                   hidden: {
                     opacity: 0,
                     y: 50,
                     rotateX: -90,
-                    scale: 0.5
+                    scale: 0.5,
                   },
                   visible: {
                     opacity: 1,
@@ -151,9 +168,9 @@ export default function LandingPage() {
                       type: "spring",
                       damping: 12,
                       stiffness: 200,
-                      duration: 0.8
-                    }
-                  }
+                      duration: 0.8,
+                    },
+                  },
                 }}
               >
                 {word}
@@ -161,104 +178,167 @@ export default function LandingPage() {
             ))}
           </motion.h1>
         </div>
-        <div className="w-full h-[80%] box-container">
-          <motion.div
-            className="box bg-primary flex items-center p-8 pl-12"
-            onHoverStart={() => handleHoverStart("left")}
-            onHoverEnd={handleHoverEnd}
-            animate={{ clipPath: leftPoly }}
-            transition={transition}
-            style={{
-              clipPath: leftPoly,
-            }}
-          >
-            <div className="flex items-center gap-8 w-full">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
-                  Transform Your Gym
-                </h3>
-                <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
-                  Streamline operations, engage members, and boost revenue with our comprehensive gym management platform.
-                </p>
-                <motion.button
-                  className="bg-accent text-black font-semibold px-4 py-2 rounded-lg hover:bg-accent/90 transition-colors text-sm"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Request Demo
-                </motion.button>
-              </div>
-           <div className="mockup-browser border-base-300 border w-[55%]">
-  <div className="mockup-browser-toolbar">
-  </div>
-  <div className="flex justify-center border-t border-base-300 h-80">
-    <img
-      src={dashboardImage}
-      alt="Dashboard view"
-      className="w-full h-full object-cover"
-      style={{ objectPosition: 'center 0px' }}
-    />
-  </div>
-</div>
-            </div>
-          </motion.div>
 
-          <motion.div
-            className="box bg-white flex items-center p-8 pr-12"
-            onHoverStart={() => handleHoverStart("right")}
-            onHoverEnd={handleHoverEnd}
-            animate={{ clipPath: rightPoly }}
-            transition={transition}
-            style={{
-              clipPath: rightPoly,
-            }}
-          >
-            <div className="flex items-center gap-22 w-full">
-              <div>
-                <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
-                  Your Fitness Companion
-                </h3>
-                <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
-                  Track workouts, book classes, and connect with your gym community. Download now and start your journey.
-                </p>
-                <div className="flex gap-3 mb-4">
+        <div className="w-full h-[80%] flex flex-col">
+          {/* Product Navigation Indicators */}
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <motion.button
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                hover === "left"
+                  ? "bg-[#0F2F50] text-white shadow-md"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+              onClick={() => handleHoverStart("left")}
+              animate={{ scale: hover === "left" ? 1.15 : 1 }}
+              whileHover={{ scale: hover === "left" ? 1.17 : 1.02 }}
+              whileTap={{ scale: hover === "left" ? 1.13 : 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              <div className="w-2 h-2 rounded-full bg-current"></div>
+              For Gym Owners
+            </motion.button>
+
+            <div className="w-8 h-px bg-gray-300"></div>
+
+            <motion.button
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                hover === "right"
+                  ? "bg-accent text-black shadow-md"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+              onClick={() => handleHoverStart("right")}
+              animate={{ scale: hover === "right" ? 1.15 : 1 }}
+              whileHover={{ scale: hover === "right" ? 1.17 : 1.02 }}
+              whileTap={{ scale: hover === "right" ? 1.13 : 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              <div className="w-2 h-2 rounded-full bg-current"></div>
+              For Gym Members
+            </motion.button>
+          </div>
+
+          <div className="flex-1 box-container">
+            <motion.div
+              className={`box bg-gradient-to-br from-primary to-primary/90 flex items-center p-8 pl-12 ${
+                hover === "left" ? "border-l-4 border-[#0F2F50]" : ""
+              }`}
+              onHoverStart={() => handleHoverStart("left")}
+              onHoverEnd={handleHoverEnd}
+              animate={{ clipPath: leftPoly }}
+              transition={transition}
+              style={{
+                clipPath: leftPoly,
+              }}
+            >
+              <div className="flex items-center gap-8 w-full">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="bg-[#0F2F50] text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                      DASHBOARD
+                    </span>
+                    <span className="text-[#0F2F50]/60 text-sm font-medium">
+                      For Gym Owners
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
+                    Gym Management Dashboard
+                  </h3>
+                  <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
+                    Streamline operations, manage equipment, track member
+                    activity, and boost revenue with our comprehensive gym
+                    management platform.
+                  </p>
                   <motion.button
-                    className="cursor-pointer"
+                    className="bg-[#0F2F50] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#0F2F50]/90 transition-colors text-sm shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <img
-                      src={appStoreIcon}
-                      alt="Download on the App Store"
-                      className="h-10"
-                    />
-                  </motion.button>
-                  <motion.button
-                    className="cursor-pointer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <img
-                      src={playStoreIcon}
-                      alt="Get it on Google Play"
-                      className="h-10"
-                    />
+                    Request Demo
                   </motion.button>
                 </div>
-              </div>
-              <div className="mockup-phone scale-75 bg-white">
-                <div className="mockup-phone-camera"></div>
-                <div className="mockup-phone-display">
-                  <img
-                    src={mobileImage}
-                    alt="Mobile app"
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: 'center 30px' }}
-                  />
+                <div className="mockup-browser border-base-300 border w-[55%]">
+                  <div className="mockup-browser-toolbar"></div>
+                  <div className="flex justify-center border-t border-base-300 h-80">
+                    <img
+                      src={dashboardImage}
+                      alt="Dashboard view"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: "center 0px" }}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            <motion.div
+              className={`box bg-gradient-to-bl from-white to-gray-50 flex items-center p-8 pr-12 ${
+                hover === "right" ? "border-r-4 border-accent" : ""
+              }`}
+              onHoverStart={() => handleHoverStart("right")}
+              onHoverEnd={handleHoverEnd}
+              animate={{ clipPath: rightPoly }}
+              transition={transition}
+              style={{
+                clipPath: rightPoly,
+              }}
+            >
+              <div className="flex items-center gap-22 w-full">
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="bg-accent text-black px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                      MOBILE APP
+                    </span>
+                    <span className="text-[#0F2F50]/60 text-sm font-medium">
+                      For Gym Members
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
+                    Availio Fitness App
+                  </h3>
+                  <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
+                    Check equipment availability, track workouts, book classes,
+                    and connect with your gym community. Download now and start
+                    your journey.
+                  </p>
+                  <div className="flex gap-3 mb-4">
+                    <motion.button
+                      className="cursor-pointer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <img
+                        src={appStoreIcon}
+                        alt="Download on the App Store"
+                        className="h-10"
+                      />
+                    </motion.button>
+                    <motion.button
+                      className="cursor-pointer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <img
+                        src={playStoreIcon}
+                        alt="Get it on Google Play"
+                        className="h-10"
+                      />
+                    </motion.button>
+                  </div>
+                </div>
+                <div className="mockup-phone scale-75 bg-white">
+                  <div className="mockup-phone-camera"></div>
+                  <div className="mockup-phone-display">
+                    <img
+                      src={mobileImage}
+                      alt="Mobile app"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: "center 30px" }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
