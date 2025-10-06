@@ -232,12 +232,42 @@
   }
 }
 
+/* Mobile: one card at a time */
+@keyframes marquee-left-mobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-304px - 1rem));
+  }
+}
+
+@keyframes marquee-right-mobile {
+  0% {
+    transform: translateX(calc(-304px - 1rem));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .animate-marquee-left {
-  animation: marquee-left 60s linear infinite;
+  animation: marquee-left-mobile 3s ease-in-out infinite;
 }
 
 .animate-marquee-right {
-  animation: marquee-right 60s linear infinite;
+  animation: marquee-right-mobile 3s ease-in-out infinite;
+}
+
+/* Desktop: original smooth scroll */
+@media (min-width: 768px) {
+  .animate-marquee-left {
+    animation: marquee-left 60s linear infinite;
+  }
+
+  .animate-marquee-right {
+    animation: marquee-right 60s linear infinite;
+  }
 }
 
 /* Enhanced shadow utilities for testimonials */

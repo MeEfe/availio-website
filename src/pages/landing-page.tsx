@@ -84,13 +84,13 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="flex items-center flex-col p-6 content-container">
-      <div className=" w-[90%] flex gap-[10%] flex-1 justify-center items-center">
-        <div className="p-3 w-1/4 content-end h-[80%]">
+    <div className="flex items-center flex-col p-4 sm:p-6 content-container">
+      <div className="w-full lg:w-[90%] flex flex-col lg:flex-row lg:gap-[10%] flex-1 justify-center items-center">
+        <div className="p-3 w-full lg:w-1/4 content-end lg:h-[80%] mb-6 lg:mb-0">
           <motion.h1
-            className="uppercase mb-4 font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white relative group cursor-pointer"
+            className="uppercase mb-4 font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white relative group cursor-pointer text-center lg:text-left"
             style={{
-              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+              fontSize: "clamp(1.75rem, 5vw, 4.5rem)",
               lineHeight: "1.2",
             }}
             initial="hidden"
@@ -127,7 +127,7 @@ export default function LandingPage() {
             <motion.div
               className="absolute bottom-0 left-0 h-2 bg-accent rounded-full"
               initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
+              animate={{ width: "80%" }}
               transition={{
                 duration: 1.5,
                 delay: 1.5,
@@ -179,9 +179,9 @@ export default function LandingPage() {
           </motion.h1>
         </div>
 
-        <div className="w-full h-[80%] flex flex-col">
-          {/* Product Navigation Indicators */}
-          <div className="flex items-center justify-center gap-4 mb-4">
+        <div className="w-full lg:flex-1 lg:h-[80%] flex flex-col">
+          {/* Product Navigation Indicators - Hidden on mobile */}
+          <div className="hidden lg:flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-4 px-4">
             <motion.button
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 hover === "left"
@@ -215,8 +215,8 @@ export default function LandingPage() {
 
           <div className="flex-1 box-container">
             <motion.div
-              className={`box bg-gradient-to-br from-primary to-primary/90 flex items-center p-8 pl-12 ${
-                hover === "left" ? "border-l-4 border-[#0F2F50]" : ""
+              className={`box bg-gradient-to-br from-primary to-primary/90 flex items-center p-8 pl-12 border-l-4 lg:border-l-0 border-[#0F2F50] ${
+                hover === "left" ? "lg:border-l-4 lg:border-[#0F2F50]" : ""
               }`}
               onHoverStart={() => handleHoverStart("left")}
               onHoverEnd={handleHoverEnd}
@@ -226,17 +226,17 @@ export default function LandingPage() {
                 clipPath: leftPoly,
               }}
             >
-              <div className="flex items-center gap-8 w-full">
-                <div className="flex-1">
+              <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 w-full">
+                <div className="flex-1 w-full">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="bg-[#0F2F50] text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
                       DASHBOARD
                     </span>
-                    <span className="text-[#0F2F50]/60 text-sm font-medium">
+                    <span className="text-[#0F2F50]/60 text-sm font-medium hidden sm:inline">
                       For Gym Owners
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#0F2F50] mb-3">
                     Gym Management Dashboard
                   </h3>
                   <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
@@ -254,7 +254,7 @@ export default function LandingPage() {
                     </motion.button>
                   </Link>
                 </div>
-                <div className="mockup-browser border-base-300 border w-[55%]">
+                <div className="mockup-browser border-base-300 border w-full lg:w-[55%] hidden lg:block">
                   <div className="mockup-browser-toolbar"></div>
                   <div className="flex justify-center border-t border-base-300 h-80">
                     <img
@@ -269,8 +269,8 @@ export default function LandingPage() {
             </motion.div>
 
             <motion.div
-              className={`box bg-gradient-to-bl from-white to-gray-50 flex items-center p-8 pr-12 ${
-                hover === "right" ? "border-r-4 border-accent" : ""
+              className={`box bg-gradient-to-bl from-white to-gray-50 flex items-center p-8 pr-12 border-l-4 lg:border-l-0 lg:border-r-0 border-accent ${
+                hover === "right" ? "lg:border-r-4 lg:border-accent" : ""
               }`}
               onHoverStart={() => handleHoverStart("right")}
               onHoverEnd={handleHoverEnd}
@@ -280,17 +280,17 @@ export default function LandingPage() {
                 clipPath: rightPoly,
               }}
             >
-              <div className="flex items-center gap-22 w-full">
-                <div>
+              <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-22 w-full">
+                <div className="flex-1 w-full">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="bg-accent text-black px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
                       MOBILE APP
                     </span>
-                    <span className="text-[#0F2F50]/60 text-sm font-medium">
+                    <span className="text-[#0F2F50]/60 text-sm font-medium hidden sm:inline">
                       For Gym Members
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-[#0F2F50] mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#0F2F50] mb-3">
                     Availio Fitness App
                   </h3>
                   <p className="text-[#0F2F50]/80 mb-6 text-sm leading-relaxed">
@@ -307,7 +307,7 @@ export default function LandingPage() {
                       <img
                         src={appStoreIcon}
                         alt="Download on the App Store"
-                        className="h-10"
+                        className="h-8 sm:h-10"
                       />
                     </motion.button>
                     <motion.button
@@ -318,12 +318,12 @@ export default function LandingPage() {
                       <img
                         src={playStoreIcon}
                         alt="Get it on Google Play"
-                        className="h-10"
+                        className="h-8 sm:h-10"
                       />
                     </motion.button>
                   </div>
                 </div>
-                <div className="mockup-phone scale-30 lg:scale-40 xl:scale-50 2xl:scale-55 bg-white">
+                <div className="mockup-phone scale-30 lg:scale-40 xl:scale-50 2xl:scale-55 bg-white hidden lg:block">
                   <div className="mockup-phone-camera"></div>
                   <div className="mockup-phone-display">
                     <img

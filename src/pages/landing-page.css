@@ -24,6 +24,25 @@
   font-weight: 600;
 }
 
+/* Mobile responsive layout */
+@media (max-width: 1024px) {
+  .box-container {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: visible;
+    box-shadow: none;
+  }
+
+  .box {
+    position: static !important;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    clip-path: none !important;
+  }
+}
+
 .right-box {
 }
 

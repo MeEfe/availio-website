@@ -86,8 +86,23 @@ export default function ThreeCursor() {
   const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = React.useState(false);
   const [isVisible, setIsVisible] = React.useState(true);
+  const [isMobile, setIsMobile] = React.useState(false);
 
   useEffect(() => {
+    // Detect if device is mobile/touch-enabled
+    const checkMobile = () => {
+      const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+        ('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0);
+      setIsMobile(mobile);
+    };
+
+    checkMobile();
+  }, []);
+
+  useEffect(() => {
+    // Don't initialize cursor on mobile devices
+    if (isMobile) return;
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({
         x: e.clientX,
@@ -135,9 +150,10 @@ export default function ThreeCursor() {
       document.removeEventListener('mouseenter', handleMouseEnter);
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [isMobile]);
 
-  if (!isVisible) return null;
+  // Don't render on mobile devices
+  if (isMobile || !isVisible) return null;
 
   return (
     <div

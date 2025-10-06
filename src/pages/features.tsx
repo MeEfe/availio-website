@@ -140,13 +140,13 @@ export default function Features() {
 
           {/* Platform Toggle */}
           <motion.div
-            className="flex justify-center mt-12"
+            className="flex justify-center mt-12 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="bg-card border border-border rounded-2xl p-2 shadow-lg">
-              <div className="flex space-x-2">
+            <div className="bg-card border border-border rounded-2xl p-2 shadow-lg w-full max-w-2xl">
+              <div className="flex flex-col sm:flex-row gap-2 sm:space-x-2 sm:gap-0">
                 {[
                   { key: 'dashboard', label: 'Dashboard', icon: <Monitor className="w-4 h-4" /> },
                   { key: 'both', label: 'All Features', icon: null },
@@ -155,7 +155,7 @@ export default function Features() {
                   <motion.button
                     key={option.key}
                     onClick={() => setActiveView(option.key as any)}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all ${
+                    className={`flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-medium transition-all ${
                       activeView === option.key
                         ? 'bg-accent text-accent-foreground shadow-md'
                         : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
@@ -164,7 +164,7 @@ export default function Features() {
                     whileTap={{ scale: 0.98 }}
                   >
                     {option.icon}
-                    {option.label}
+                    <span className="text-sm sm:text-base">{option.label}</span>
                   </motion.button>
                 ))}
               </div>

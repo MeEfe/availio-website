@@ -73,9 +73,9 @@ function Testimonials({ className }: TestimonialsProps) {
   const duplicatedMemberTestimonials = [...gymMemberTestimonials, ...gymMemberTestimonials];
 
   const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => (
-    <div className="group flex-shrink-0 w-80 mx-2 relative">
+    <div className="group flex-shrink-0 w-72 sm:w-80 mx-2 relative">
       {/* Glassmorphism card with premium styling - fixed height */}
-      <div className="relative bg-white/60 backdrop-blur-xl border border-white/30 rounded-2xl p-6 shadow-2xl hover:shadow-3xl hover:scale-[1.02] transition-all duration-500 ease-out hover:bg-white/70 h-52 flex flex-col">
+      <div className="relative bg-white/60 backdrop-blur-xl border border-white/30 rounded-2xl p-4 sm:p-6 shadow-2xl hover:shadow-3xl hover:scale-[1.02] transition-all duration-500 ease-out hover:bg-white/70 h-48 sm:h-52 flex flex-col">
         {/* Subtle gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl pointer-events-none"></div>
 
@@ -107,14 +107,14 @@ function Testimonials({ className }: TestimonialsProps) {
   );
 
   return (
-    <section className={cn("relative w-full py-32 overflow-hidden bg-background", className)}>
+    <section className={cn("relative w-full py-16 sm:py-24 lg:py-32 overflow-hidden bg-background", className)}>
       {/* Elegant background harmonized with theme colors */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-gray-100/40 to-accent/10"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,197,167,0.12),transparent_70%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(240,240,240,0.4),transparent_60%)]"></div>
 
       {/* Header section with premium typography */}
-      <div className="relative max-w-5xl mx-auto px-8 mb-20 text-center">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-8 mb-12 sm:mb-20 text-center">
         <div className="space-y-6">
           {/* Overline text */}
           <div className="flex items-center justify-center space-x-3">
@@ -126,7 +126,7 @@ function Testimonials({ className }: TestimonialsProps) {
           </div>
 
           {/* Main heading with gradient text */}
-          <h2 className="text-5xl lg:text-7xl font-black tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tight">
             <span className="bg-gradient-to-r from-foreground via-foreground/80 to-foreground bg-clip-text text-transparent">
               Trusted by
             </span>
@@ -137,7 +137,7 @@ function Testimonials({ className }: TestimonialsProps) {
           </h2>
 
           {/* Subtitle with refined spacing */}
-          <p className="text-xl text-gray-900 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-900 max-w-3xl mx-auto leading-relaxed font-medium px-4">
             Discover how gym owners and members worldwide are transforming their fitness experience with Availio's innovative solutions
           </p>
         </div>

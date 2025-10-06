@@ -5,9 +5,13 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import ReactLogo from "../../assets/logo.svg";
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header
       className="sticky top-0 z-50 w-full"
@@ -16,7 +20,7 @@ export default function Header() {
     >
       <div className="h-[var(--app-header-height)] w-full border-b bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div
-          className="mx-auto flex h-full max-w-full items-center justify-between 
+          className="mx-auto flex h-full max-w-full items-center justify-between
   px-4 md:px-20 lg:px-40 xl:px-60"
         >
           {/* Left: Icon slot + (optional) brand */}
@@ -34,6 +38,7 @@ export default function Header() {
             </span>
           </Link>
 
+          {/* Desktop Navigation */}
           <nav aria-label="Primary" className="hidden md:block">
             <NavigationMenu>
               <NavigationMenuList>
@@ -68,7 +73,56 @@ export default function Header() {
               </NavigationMenuList>
             </NavigationMenu>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t bg-white/95 backdrop-blur">
+            <nav className="px-4 py-4 space-y-2">
+              <Link
+                to="/"
+                className="block px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                to="/features"
+                className="block px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Features
+              </Link>
+              <Link
+                to="/pricing"
+                className="block px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Pricing
+              </Link>
+              <Link
+                to="/contact"
+                className="block px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
