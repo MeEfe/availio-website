@@ -124,16 +124,6 @@ export default function LandingPage() {
                 ease: "easeOut",
               }}
             />
-            <motion.div
-              className="absolute bottom-0 left-0 h-2 bg-accent rounded-full"
-              initial={{ width: "0%" }}
-              animate={{ width: "80%" }}
-              transition={{
-                duration: 1.5,
-                delay: 1.5,
-                ease: "easeOut",
-              }}
-            />
             {[
               "Let's",
               " ",
@@ -150,6 +140,8 @@ export default function LandingPage() {
                 className={
                   word === "improve"
                     ? "underline underline-offset-3 decoration-8 decoration-accent dark:decoration-blue-600"
+                    : word === "experience"
+                    ? "relative inline-block"
                     : ""
                 }
                 variants={{
@@ -174,6 +166,18 @@ export default function LandingPage() {
                 }}
               >
                 {word}
+                {word === "experience" && (
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-2 bg-accent rounded-full"
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: 1.5,
+                      delay: 1.5,
+                      ease: "easeOut",
+                    }}
+                  />
+                )}
               </motion.span>
             ))}
           </motion.h1>
