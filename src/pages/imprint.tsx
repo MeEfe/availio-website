@@ -17,7 +17,7 @@ export default function Imprint() {
       icon: <Building2 className="w-6 h-6" />,
       title: "Company Information",
       content: [
-        { label: "Company Name", value: "Availio Inc." },
+        { label: "Company Name", value: "Availio" },
         { label: "Address", value: "Dornbirn, Austria" },
         { label: "Registration Number", value: "FN 123456 a" },
       ],
@@ -26,15 +26,14 @@ export default function Imprint() {
       icon: <Mail className="w-6 h-6" />,
       title: "Contact Details",
       content: [
-        { label: "Email", value: "support@availio.com", link: "mailto:support@availio.com" },
-        { label: "Phone", value: "+1 (234) 567-890", link: "tel:+1234567890" },
+        { label: "Email", value: "theavailioco@gmail.com", link: "mailto:theavailioco@gmail.com" },
       ],
     },
     {
       icon: <Scale className="w-6 h-6" />,
       title: "Legal Representatives",
       content: [
-        { label: "Managing Director", value: "John Doe" },
+        { label: "Managing Director", value: "Efdal Erter" },
         { label: "Commercial Register", value: "Handelsgericht Wien" },
       ],
     },
@@ -141,7 +140,7 @@ export default function Imprint() {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} Availio Inc. All rights reserved.
+            © {new Date().getFullYear()} Availio. All rights reserved.
           </p>
         </motion.div>
       </div>

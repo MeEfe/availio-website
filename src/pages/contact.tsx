@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Send, Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
+import { Send, Mail, MapPin, CheckCircle2 } from "lucide-react";
 
 export default function Contact() {
   const containerRef = React.useRef(null);
@@ -64,20 +64,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h3>
-                    <a href="mailto:support@availio.com" className="text-gray-600 dark:text-gray-300 hover:text-accent transition-colors">
-                      support@availio.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-foreground/10 rounded-lg text-foreground flex-shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Phone</h3>
-                    <a href="tel:+1234567890" className="text-gray-600 dark:text-gray-300 hover:text-accent transition-colors">
-                      +1 (234) 567-890
+                    <a href="mailto:theavailioco@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-accent transition-colors">
+                      theavailioco@gmail.com
                     </a>
                   </div>
                 </div>

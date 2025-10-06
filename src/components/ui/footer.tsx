@@ -14,8 +14,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  MapPin,
-  Phone,
   Send,
   Instagram,
 } from "lucide-react";
@@ -65,7 +63,7 @@ const defaultColumns: FooterColumn[] = [
 
 // --- Component --------------------------------------------------------------
 export default function ElegantFooter({
-  companyName = "Availio Inc.",
+  companyName = "Availio",
   columns = defaultColumns,
 }: FooterProps) {
   const [email, setEmail] = React.useState("");
@@ -178,25 +176,12 @@ export default function ElegantFooter({
           {/* Contact mini-block */}
           <div className="flex flex-col gap-3 text-sm">
             <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
-              <MapPin className="h-5 w-5 text-slate-400 group-hover:text-slate-300 transition-colors" />
-              <span>Dornbirn</span>
-            </div>
-            <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
-              <Phone className="h-5 w-5 text-slate-400 group-hover:text-slate-300 transition-colors" />
-              <a
-                href="tel:+1234567890"
-                className="hover:text-white transition-colors"
-              >
-                +1 (234) 567-890
-              </a>
-            </div>
-            <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
               <Mail className="h-5 w-5 text-slate-400 group-hover:text-slate-300 transition-colors" />
               <a
-                href="mailto:support@availio.com"
+                href="mailto:theavailioco@gmail.com"
                 className="hover:text-white transition-colors"
               >
-                support@availio.com
+                theavailioco@gmail.com
               </a>
             </div>
           </div>
