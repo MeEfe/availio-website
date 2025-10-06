@@ -46,20 +46,20 @@ const defaultColumns: FooterColumn[] = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#" },
+      { label: "Features", to: "/features" },
       { label: "Pricing", to: "/pricing" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "About", to: "/about" },
+      { label: "Contact", to: "/contact" },
     ],
   },
   {
     title: "Legal",
-    links: [{ label: "Imprint", href: "/imprint" }],
+    links: [{ label: "Imprint", to: "/imprint" }],
   },
 ];
 

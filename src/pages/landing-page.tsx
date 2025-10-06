@@ -1,7 +1,7 @@
 import * as React from "react";
 import { motion, type Transition } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./landing-page.css";
-import { KeyInfo } from "@/components/ui/key-info";
 import dashboardImage from "../assets/dashboard.png";
 import mobileImage from "../assets/mobile.png";
 import appStoreIcon from "../assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg";
@@ -244,13 +244,15 @@ export default function LandingPage() {
                     activity, and boost revenue with our comprehensive gym
                     management platform.
                   </p>
-                  <motion.button
-                    className="bg-[#0F2F50] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#0F2F50]/90 transition-colors text-sm shadow-lg"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Request Demo
-                  </motion.button>
+                  <Link to="/contact">
+                    <motion.button
+                      className="bg-[#0F2F50] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#0F2F50]/90 transition-colors text-sm shadow-lg"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Request Demo
+                    </motion.button>
+                  </Link>
                 </div>
                 <div className="mockup-browser border-base-300 border w-[55%]">
                   <div className="mockup-browser-toolbar"></div>

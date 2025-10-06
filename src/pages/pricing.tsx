@@ -209,9 +209,12 @@ export default function Pricing({ isOnLandingPage = false }: { isOnLandingPage?:
               {/* Premium Plan */}
               <div className="relative">
                 <div className="absolute -top-2 sm:-top-3 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="bg-foreground text-background px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wide">
-                    Most Popular
-                  </span>
+                  <div className="relative p-[2px] rounded-full bg-gradient-to-r from-accent via-foreground to-accent bg-[length:200%_100%] animate-gradient-shift">
+                    <span className="block bg-foreground text-background px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wide relative overflow-hidden">
+                      <span className="relative z-10">Most Popular</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/20 to-transparent animate-sparkle"></span>
+                    </span>
+                  </div>
                 </div>
                 <Card className={`border-2 h-full flex flex-col ${isOnLandingPage ? 'bg-background/95 border-background/30' : 'bg-gradient-to-br from-foreground/5 to-foreground/10 border-foreground/20'}`}>
                   <CardHeader className="text-center pb-6 sm:pb-8 pt-8 sm:pt-12 px-4 sm:px-6">
