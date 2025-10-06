@@ -145,8 +145,8 @@ export default function Features() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="bg-card border border-border rounded-2xl p-2 shadow-lg w-full max-w-2xl">
-              <div className="flex flex-col sm:flex-row gap-2 sm:space-x-2 sm:gap-0">
+            <div className="bg-card border border-border rounded-2xl p-2 shadow-lg w-full max-w-1/2">
+              <div className="flex justify-between flex-col sm:flex-row gap-2 sm:space-x-2 sm:gap-0">
                 {[
                   { key: 'dashboard', label: 'Dashboard', icon: <Monitor className="w-4 h-4" /> },
                   { key: 'both', label: 'All Features', icon: null },
@@ -240,7 +240,7 @@ export default function Features() {
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
+                      transition={{ delay: idx * 0.085 }}
                     >
                       <div className="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
                         {feature.icon}
@@ -287,7 +287,7 @@ export default function Features() {
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
+                      transition={{ delay: idx * 0.085 }}
                     >
                       <div className="bg-white p-2 rounded-lg shadow-sm flex-shrink-0">
                         {feature.icon}
