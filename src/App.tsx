@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Footer from "./components/ui/footer";
 import Header from "./components/ui/header";
 import ThreeCursor from "./components/ui/three-cursor";
@@ -9,8 +10,15 @@ import Features from "./pages/features";
 import Imprint from "./pages/imprint";
 import About from "./pages/about";
 import Contact from "./pages/contact";
+import { trackPageView } from "./lib/analytics";
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
+
   return (
     <>
       <ScrollToTop />
