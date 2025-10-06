@@ -219,7 +219,7 @@ export default function LandingPage() {
 
           <div className="flex-1 box-container">
             <motion.div
-              className={`box bg-gradient-to-br from-primary to-primary/90 flex items-center p-8 pl-12 border-l-4 lg:border-l-0 border-[#0F2F50] ${
+              className={`box bg-gradient-to-br from-primary to-primary/90 flex items-center p-4 sm:p-6 lg:p-8 lg:pl-12 border-l-4 lg:border-l-0 border-[#0F2F50] ${
                 hover === "left" ? "lg:border-l-4 lg:border-[#0F2F50]" : ""
               }`}
               onHoverStart={() => handleHoverStart("left")}
@@ -273,7 +273,7 @@ export default function LandingPage() {
             </motion.div>
 
             <motion.div
-              className={`box bg-gradient-to-bl from-white to-gray-50 flex items-center p-8 pr-12 border-l-4 lg:border-l-0 lg:border-r-0 border-accent ${
+              className={`box bg-gradient-to-bl from-white to-gray-50 flex items-center p-4 sm:p-6 lg:p-8 lg:pr-12 border-l-4 lg:border-l-0 lg:border-r-0 border-accent ${
                 hover === "right" ? "lg:border-r-4 lg:border-accent" : ""
               }`}
               onHoverStart={() => handleHoverStart("right")}
