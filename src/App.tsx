@@ -10,7 +10,7 @@ import Features from "./pages/features";
 import Imprint from "./pages/imprint";
 import About from "./pages/about";
 import Contact from "./pages/contact";
-import { trackPageView } from "./lib/analytics";
+import { trackPageView, initButtonClickTracking } from "./lib/analytics";
 
 function App() {
   const location = useLocation();
@@ -18,6 +18,11 @@ function App() {
   useEffect(() => {
     trackPageView(location.pathname + location.search);
   }, [location]);
+
+  useEffect(() => {
+    const cleanup = initButtonClickTracking();
+    return () => cleanup();
+  }, []);
 
   return (
     <>
