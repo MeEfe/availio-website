@@ -1,4 +1,4 @@
-// Google Analytics helper functions
+// Google Analytics and Google Tag Manager helper functions
 
 declare global {
   interface Window {
@@ -7,21 +7,40 @@ declare global {
       targetId: string,
       config?: Record<string, any>
     ) => void;
+    dataLayer?: any[];
   }
 }
 
 /**
- * Track a page view in Google Analytics
+ * Push an event to the Google Tag Manager data layer
+ * @param event - Event object to push to data layer
+ */
+export const pushToDataLayer = (event: Record<string, any>) => {
+  if (typeof window !== 'undefined' && window.dataLayer) {
+    window.dataLayer.push(event);
+  }
+};
+
+/**
+ * Track a page view in Google Analytics and GTM
  * @param path - The path of the page being viewed
  * @param title - Optional title of the page
  */
 export const trackPageView = (path: string, title?: string) => {
+  // Track in Google Analytics
   if (typeof window.gtag !== 'undefined') {
     window.gtag('config', 'G-NHLQBBV0K7', {
       page_path: path,
       page_title: title || document.title,
     });
   }
+
+  // Push to GTM data layer
+  pushToDataLayer({
+    event: 'page_view',
+    page_path: path,
+    page_title: title || document.title,
+  });
 };
 
 /**
@@ -82,7 +101,14 @@ export const initButtonClickTracking = () => {
     };
 
     try {
+      // Track in Google Analytics
       trackEvent(overrideEvent, params);
+
+      // Push to GTM data layer for button clicks
+      pushToDataLayer({
+        event: overrideEvent,
+        ...params,
+      });
     } catch (_) {
       // Silently ignore analytics errors to avoid breaking UI
     }
