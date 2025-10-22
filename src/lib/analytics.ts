@@ -72,9 +72,9 @@ export const initButtonClickTracking = () => {
     const target = event.target as Element | null;
     if (!target || !(target instanceof Element)) return;
 
-    // Find the nearest button-like element
+    // Find the nearest button-like or link element
     const el = target.closest(
-      'button, [role="button"], input[type="button"], input[type="submit"]'
+      'button, [role="button"], input[type="button"], input[type="submit"], a[href]'
     ) as HTMLElement | null;
 
     if (!el) return;
@@ -90,6 +90,11 @@ export const initButtonClickTracking = () => {
     const labelSource = explicitLabel || ariaLabel || textContent || valueAttr || '';
     const buttonText = (labelSource || '').toString().trim().slice(0, 100);
 
+    // For links, also capture the destination
+    const linkHref = el.tagName.toLowerCase() === 'a'
+      ? (el as HTMLAnchorElement).getAttribute('href')
+      : undefined;
+
     // Build event params (avoid sending PII; keep generic metadata)
     const params: Record<string, any> = {
       button_text: buttonText,
@@ -98,6 +103,7 @@ export const initButtonClickTracking = () => {
       button_role: el.getAttribute('role') || (el.tagName || '').toLowerCase(),
       button_classes: (el.getAttribute('class') || '').trim() || undefined,
       location_path: window.location.pathname + window.location.search,
+      link_url: linkHref || undefined,
     };
 
     try {
